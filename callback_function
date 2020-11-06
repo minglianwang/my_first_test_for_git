@@ -1,0 +1,47 @@
+#include<stdio.h>
+#include<string.h>
+#include <stdlib.h>//system头文件
+#include <windows.h>
+
+
+typedef void (*callback_my)(int event_num);
+
+void callback0(int event_num)
+{
+	switch(event_num)
+	{
+	case 0:
+		printf("你好傻\n");
+		break;
+	case 1:
+		printf("你好笨\n");
+		break;
+	case 2:
+		printf("你好聪明\n");
+		break;
+	case 3:
+		printf("你好漂亮\n");
+		break;
+    default :
+		printf("你好丑\n");
+		break;
+
+	}
+}
+
+int setup(callback_my cb)
+{
+	int i;
+	while(1)
+	{
+		scanf("%d",&i);
+		cb(i);
+	}
+}
+
+int main()
+{	
+	setup(callback0);
+	system("pause");
+	return 0;
+}
